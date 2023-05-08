@@ -29,7 +29,7 @@ Accetta un body in formato JSON con username e password.
 
 Endpoing Register: POST /api/auth/register
 
-Accetta un body in formato JSON con username, password, name, surname, email, roles.
+Accetta un body in formato JSON con username, password, email.
 
 Tutti i campi sono in formato String, ad eccezione dei ROLES che sono un array di stringhe.
 
