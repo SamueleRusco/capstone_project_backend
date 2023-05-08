@@ -13,13 +13,11 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class RegisterDto {
-    private String name;
+public class RegisterDto {   
     private String username;
     private String email;
     private String password;
-    private String secretCode;
-    private String creditCard;
+    private String secretCode;   
  // Per registrare tutti come USER di Default commentare roles
     private Set<String> roles;
 }
