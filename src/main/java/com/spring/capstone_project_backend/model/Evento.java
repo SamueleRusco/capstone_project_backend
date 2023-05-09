@@ -37,8 +37,7 @@ public class Evento {
 	@Column(nullable = false)
 	private String descrizione;
 	
-	/*@Column(nullable = false)
-	private String immagineEvento;*/ //da implementare sucessivamente
+	
 	
 	@Column(nullable = false)
 	private LocalDate dataEvento;
@@ -46,7 +45,11 @@ public class Evento {
 
 	
 	@Column(nullable = false)
-	private List<String> artistiEvento;//valutare inserimento degli hashtag(?)
+	private List<String> artistiEvento;
+	
+	@Lob
+    @Column(nullable = true)
+    private byte[] immagineEvento;
 	
 
 	

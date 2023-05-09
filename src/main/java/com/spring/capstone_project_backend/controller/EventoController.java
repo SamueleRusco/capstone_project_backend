@@ -17,9 +17,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.spring.capstone_project_backend.model.Evento;
+import com.spring.capstone_project_backend.dto.EventoImmagineDto;
 import com.spring.capstone_project_backend.service.EventoService;
 
 @CrossOrigin(origins =  "*", maxAge = 360000)
@@ -64,20 +68,31 @@ public class EventoController {
 	public ResponseEntity<?> getclientiPerNomeParte(@PathVariable("nome") String nome){
 		return new ResponseEntity<>(service.getAllEventiPerTitoloEvento(nome), HttpStatus.OK);
 	}
+	 @PostMapping("/immagine/{id}")
+	 @PreAuthorize("hasRole('ROLE_ADMIN')")
+	    public ResponseEntity<?> uploadImmagineEvento(@PathVariable("id") Long id, @RequestPart("immagine") MultipartFile immagine) {
+		 try {
+		        EventoImmagineDto eventoImmagineDto = new EventoImmagineDto(id, immagine);
+		        service.uploadImmagineEvento(eventoImmagineDto);
+		        return ResponseEntity.ok().build();
+		    } catch (Exception e) {
+		        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+		    }
+	    }
 	
 	@PostMapping
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public ResponseEntity<?> createCliente(@RequestBody Evento evento) {
+	public ResponseEntity<?> createEvento(@RequestBody Evento evento) {
 		return new ResponseEntity<Evento>(service.createEvento(evento), HttpStatus.CREATED);
 	}
 	@DeleteMapping("/{id}")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public ResponseEntity<String> deleteCliente(@PathVariable Long id){
+	public ResponseEntity<String> deleteEvento(@PathVariable Long id){
 		return new ResponseEntity<String>(service.removeEvento(id), HttpStatus.OK);
 	}
 	@PutMapping
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public ResponseEntity<?> updateUser(@RequestBody Evento evento) {
+	public ResponseEntity<?> updateEvento(@RequestBody Evento evento) {
 		return new ResponseEntity<Evento>(service.updateEvento(evento), HttpStatus.CREATED);
 	}
 	

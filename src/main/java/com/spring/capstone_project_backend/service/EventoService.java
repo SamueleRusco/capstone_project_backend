@@ -1,6 +1,7 @@
 package com.spring.capstone_project_backend.service;
 
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -10,13 +11,16 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-
+import com.spring.capstone_project_backend.dto.EventoImmagineDto;
 import com.spring.capstone_project_backend.model.Evento;
 import com.spring.capstone_project_backend.repository.EventoRepository;
 
+
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 
 @Service
 public class EventoService {
@@ -27,7 +31,7 @@ public class EventoService {
 	@Autowired @Qualifier("EventoRandom") private ObjectProvider <Evento> randomEventoProvider;
 	
 	
-	// Per creare cliente
+	// Per creare evento
 	
 	public void createEventoRandom() {		
 		 createEvento(randomEventoProvider.getObject());
@@ -95,6 +99,19 @@ public class EventoService {
 		}
 		repo.save(evento);
 		return evento;
+	}
+	//upload immagine
+	@Transactional
+	public void uploadImmagineEvento(EventoImmagineDto eventoImmagineDto) throws IOException {
+	    Evento evento = repo.findById(eventoImmagineDto.getId())
+	            .orElseThrow(() -> new IllegalArgumentException("Evento non trovato"));
+	    evento.setImmagineEvento(eventoImmagineDto.getImmagine().getBytes());
+	    repo.save(evento);
+	}
+
+	public void uploadImmagineEvento() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

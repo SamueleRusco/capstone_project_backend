@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /*import com.epicbe.gestioneenergia.model.Cliente;
 import com.epicbe.gestioneenergia.model.ECliente;*/
@@ -17,7 +20,7 @@ import com.github.javafaker.Faker; //importare java faker(???)
 import com.spring.capstone_project_backend.model.Evento;
 
 @Configuration
-public class EventoConfiguration {
+public class EventoConfiguration implements WebMvcConfigurer {
 	
 	@Bean("EventoRandom")
 	@Scope("prototype")
@@ -44,6 +47,14 @@ public class EventoConfiguration {
 		return e;
 		
 	}
+	
+	@Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/immagini/**")
+                .addResourceLocations("file:/path/to/immagini/");
+    }
+	
+	
 
 	
 	
