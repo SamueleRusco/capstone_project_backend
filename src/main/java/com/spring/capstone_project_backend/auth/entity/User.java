@@ -11,6 +11,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 
+import com.spring.capstone_project_backend.auth.configuration.SecurityConfig;
+
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -26,10 +29,14 @@ public class User {
     private Long id;
    
     private String username;
+    
     @Column(nullable = false, unique = true)
     private String email;
-    @Column(nullable = false)
-    private String password;
+    
+    @Column(nullable = false) 
+    private String password;  
+    
+  
 
     
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
