@@ -10,9 +10,6 @@ import lombok.ToString;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.spring.capstone_project_backend.auth.configuration.CreditCardConverter;
-import com.spring.capstone_project_backend.auth.configuration.SecretCodeConverter;
-
 
 @Setter
 @Getter
@@ -33,9 +30,6 @@ public class User {
     private String email;
     @Column(nullable = false)
     private String password;
-    
-    @Convert(converter = SecretCodeConverter.class)
-    private String secretCode;
 
     
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
