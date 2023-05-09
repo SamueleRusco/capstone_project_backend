@@ -16,9 +16,9 @@ public interface EventoRepository extends CrudRepository<Evento, Long>, PagingAn
 	public boolean existsByLuogo(String luogo);
 	public boolean existsByDataEvento(LocalDate dataEvento);
 	
-	public Evento FindByTitoloEvento(String titoloEvento);
-	public Evento FindByLuogo(String luogo);
-	public Evento FindByDataEvento(LocalDate dataEvento);
+	public Evento findByTitoloEvento(String titoloEvento);
+	public Evento findByLuogo(String luogo);
+	public Evento findByDataEvento(LocalDate dataEvento);
 
 	
 	

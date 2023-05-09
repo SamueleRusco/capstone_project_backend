@@ -4,7 +4,9 @@ package com.spring.capstone_project_backend.service;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -22,13 +24,14 @@ public class EventoService {
 	@Autowired EventoRepository repo;
 	/*@Autowired @Qualifier("ClienteRandom") private ObjectProvider <Cliente> randomClienteProvider;*/
 	
+	@Autowired @Qualifier("EventoRandom") private ObjectProvider <Evento> randomEventoProvider;
 	
 	
 	// Per creare cliente
 	
-	/*public void createClienteRandom() {		
-	 createCliente(randomClienteProvider.getObject());
-	}*/
+	public void createEventoRandom() {		
+		 createEvento(randomEventoProvider.getObject());
+		}
 	
 	//Metodi per API
 	
@@ -45,21 +48,21 @@ public class EventoService {
 		if(!repo.existsByLuogo(luogo)) {
 			throw new EntityNotFoundException("Non esistono eventi nel luogo indicato!");
 		}
-		return (List<Evento>) repo.FindByLuogo(luogo);
+		return (List<Evento>) repo.findByLuogo(luogo);
 	}
 	
 	public List <Evento> getEventiPerDataEvento(LocalDate dataEvento) {
 		if(!repo.existsByDataEvento(dataEvento)) {
 			throw new EntityNotFoundException("Non esistono eventi con la data indicata!");
 		}
-		return (List<Evento>) repo.FindByDataEvento(dataEvento);
+		return (List<Evento>) repo.findByDataEvento(dataEvento);
 	}
 	
 	public List <Evento> getAllEventiPerTitoloEvento(String titolo) {
 		if(!repo.existsByTitoloEvento(titolo)) {
 			throw new EntityNotFoundException("Non esistono eventi con questo titolo!");
 		}
-		return (List<Evento>) repo.FindByTitoloEvento(titolo);
+		return (List<Evento>) repo.findByTitoloEvento(titolo);
 	}
 	
 	public Evento getEvento(Long id) {
