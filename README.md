@@ -42,9 +42,9 @@ Eseguire in ordine i seguenti passaggi:
 
 CREARE UN DB su Postgres o MySql
 
->Settare il file application.properties in base alle necessità, a partire da application.properties.template
->Eseguire una volta la funzione 'setRoleDefault();' dal Runner (scommentare e riavviare e successivamente ricommentare)
->Eseguire una volta la funzione 'startedDB();' dal Runner per popolare il database (scommentare e riavviare e successivamente ricommentare).
->tramite PostMan eseguire il login (vedi sopra)
+#Settare il file application.properties in base alle necessità, a partire da application.properties.template
+#Eseguire una volta la funzione 'setRoleDefault();' dal Runner (scommentare e riavviare e successivamente ricommentare)
+#Eseguire una volta la funzione 'startedDB();' dal Runner per popolare il database (scommentare e riavviare e successivamente ricommentare).
+#tramite PostMan eseguire il login (vedi sopra)
 
 
