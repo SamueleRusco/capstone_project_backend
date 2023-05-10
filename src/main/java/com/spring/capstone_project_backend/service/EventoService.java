@@ -89,15 +89,15 @@ public class EventoService {
 	
 	public String removeEvento(Long id) {
 		if(!repo.existsById(id)) {
-			throw new EntityExistsException("Cliente not exists!!!");
+			throw new EntityExistsException("Evento non esiste!!");
 		}
 		repo.deleteById(id);
-		return "Cliente Deleted!!!";
+		return "evento non esiste!!!";
 	}
 	
 	public Evento updateEvento(Evento evento) {
 		if(!repo.existsById(evento.getId())) {
-			throw new EntityExistsException("Cliente not exists!!!");
+			throw new EntityExistsException("Evento non esiste!!!");
 		}
 		repo.save(evento);
 		return evento;
