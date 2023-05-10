@@ -9,12 +9,13 @@ L'API REST (Application Programming Interface Representational State Transfer) �
 
 In questo caso, l'API REST permette di effettuare operazioni di lettura e scrittura sulle entità gestite dal sistema.
 
-
-
 Entità gestite tramite API REST
 Il sistema di gestione gestisce le seguenti entità:
+Eventi:
+gli eventi sono composti da Titolo, Descrizione, Luogo, Artisti, Locandina e data; verranno poi inviati al front end tramite API per la stampa di esse a schermo.
+UserNewsletters:
+le UserNewsLetters sono composte da: nome, cognome, e-mail e consenso privacy, verrà generata una API disponibile all'admin per poter inviare email di comunicazione.
 
-*paragrafo in aggiornamento*
 
 
 Documentazione API
@@ -41,12 +42,9 @@ Eseguire in ordine i seguenti passaggi:
 
 CREARE UN DB su Postgres o MySql
 
-Settare il file application.properties in base alle necessità, a partire da application.properties.template
+>Settare il file application.properties in base alle necessità, a partire da application.properties.template
+>Eseguire una volta la funzione 'setRoleDefault();' dal Runner (scommentare e riavviare e successivamente ricommentare)
+>Eseguire una volta la funzione 'startedDB();' dal Runner per popolare il database (scommentare e riavviare e successivamente ricommentare).
+>tramite PostMan eseguire il login (vedi sopra)
 
-Avviare il programma SpringBoot (che creerà le entità di default sul DB)
 
-Eseguire una volta la funzione 'setRoleDefault();' dal Runner (scommentare e riavviare e successivamente ricommentare)
-
-Eseguire la registrazione come ADMIN tramite l'endpoint (vedi login/register)
-
-Eseguire una volta la funzione 'startedDB();' dal Runner (scommentare e riavviare e successivamente ricommentare).
