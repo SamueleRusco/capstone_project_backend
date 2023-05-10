@@ -1,7 +1,9 @@
 package com.spring.capstone_project_backend.service;
 
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -13,7 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.spring.capstone_project_backend.dto.EventoImmagineDto;
+
 import com.spring.capstone_project_backend.model.Evento;
 import com.spring.capstone_project_backend.repository.EventoRepository;
 
@@ -100,19 +102,7 @@ public class EventoService {
 		repo.save(evento);
 		return evento;
 	}
-	//upload immagine
-	@Transactional
-	public void uploadImmagineEvento(EventoImmagineDto eventoImmagineDto) throws IOException {
-	    Evento evento = repo.findById(eventoImmagineDto.getId())
-	            .orElseThrow(() -> new IllegalArgumentException("Evento non trovato"));
-	    evento.setImmagineEvento(eventoImmagineDto.getImmagine().getBytes());
-	    repo.save(evento);
-	}
-
-	public void uploadImmagineEvento() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 	
 		

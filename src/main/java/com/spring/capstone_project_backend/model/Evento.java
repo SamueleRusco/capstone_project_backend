@@ -47,9 +47,9 @@ public class Evento {
 	@Column(nullable = false)
 	private List<String> artistiEvento;
 	
-	@Lob
+	
     @Column(nullable = true)
-    private byte[] immagineEvento;
+    private String immagineEvento;
 	
 
 	

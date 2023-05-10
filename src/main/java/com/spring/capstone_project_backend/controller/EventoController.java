@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.spring.capstone_project_backend.model.Evento;
-import com.spring.capstone_project_backend.dto.EventoImmagineDto;
+
 import com.spring.capstone_project_backend.service.EventoService;
 
 @CrossOrigin(origins =  "*", maxAge = 360000)
@@ -35,19 +35,19 @@ public class EventoController {
 
 	
 	@GetMapping
-	@PreAuthorize("isAuthenticated()")
+	
 	public ResponseEntity<?> getAll() {
 		return new ResponseEntity<List<Evento>>(service.getAllEventi(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/id/{id}")
-	@PreAuthorize("isAuthenticated()")
+
 	public ResponseEntity<?> getById(@PathVariable("id") Long id) {
 		return new ResponseEntity<>(service.getEvento(id), HttpStatus.OK);
 	}
 	
 	@GetMapping("/data/{data}")
-	@PreAuthorize("isAuthenticated()")
+	
 	public ResponseEntity<?> getclientiPerNumero(@PathVariable LocalDate data){
 		return new ResponseEntity<List<Evento>>(service.getEventiPerDataEvento(data), HttpStatus.OK);
 	}
@@ -58,27 +58,17 @@ public class EventoController {
 	
 	
 	@GetMapping("/listaeventi")
-	@PreAuthorize("isAuthenticated()")
+
 	public ResponseEntity<Page<Evento>> getAllPage(Pageable pag) {
 		return new ResponseEntity<Page<Evento>>(service.getAllEventiPageable(pag), HttpStatus.OK);
 	}
 	
 	@GetMapping("/partetitolo/{titoloEvento}")
-	@PreAuthorize("isAuthenticated()")
+	
 	public ResponseEntity<?> getclientiPerNomeParte(@PathVariable("nome") String nome){
 		return new ResponseEntity<>(service.getAllEventiPerTitoloEvento(nome), HttpStatus.OK);
 	}
-	 @PostMapping("/immagine/{id}")
-	 @PreAuthorize("hasRole('ROLE_ADMIN')")
-	    public ResponseEntity<?> uploadImmagineEvento(@PathVariable("id") Long id, @RequestPart("immagine") MultipartFile immagine) {
-		 try {
-		        EventoImmagineDto eventoImmagineDto = new EventoImmagineDto(id, immagine);
-		        service.uploadImmagineEvento(eventoImmagineDto);
-		        return ResponseEntity.ok().build();
-		    } catch (Exception e) {
-		        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-		    }
-	    }
+	 
 	
 	@PostMapping
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
