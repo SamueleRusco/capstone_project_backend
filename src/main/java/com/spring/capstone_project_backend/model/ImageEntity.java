@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 
@@ -15,6 +16,7 @@ import lombok.Data;
 
 @Data
 @Entity
+
 public class ImageEntity {
  
     @Id
@@ -22,6 +24,9 @@ public class ImageEntity {
     private Long id;
  
     private String fileName;
+    
+    @OneToOne(mappedBy = "immagineEvento")
+    private Evento evento;
  
     @Lob
     private byte[] imageData;

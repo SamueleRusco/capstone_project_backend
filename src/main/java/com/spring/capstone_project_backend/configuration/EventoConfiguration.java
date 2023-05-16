@@ -42,7 +42,7 @@ public class EventoConfiguration implements WebMvcConfigurer {
 		e.setTitoloEvento(e.getLuogo() + "MUSIC FEST!");
 		e.setDescrizione(fake.lorem().paragraph());
 		e.setDataEvento(randomDate);
-		e.setImmagineEvento("qui ci sarà un url che arriverà dalle api di imgur, studiati quelle api");
+		//e.setImmagineEvento("qui ci sarà un url che arriverà dalle api di imgur, studiati quelle api");
 		e.setArtistiEvento(listaEventi);
 		
 		return e;
