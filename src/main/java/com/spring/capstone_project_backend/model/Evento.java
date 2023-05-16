@@ -50,6 +50,8 @@ public class Evento {
 	
     @Column(nullable = true)
     private String immagineEvento;
+    
+    
 	
 
 	

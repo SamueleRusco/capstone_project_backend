@@ -18,7 +18,7 @@ public class CapstoneBeRunner implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("Runner ok");
-	starterDB();
+	//starterDB();
 	}
 private void starterDB(){
 	for (int i = 0; i<10; i++) {

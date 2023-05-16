@@ -16,8 +16,7 @@ import lombok.ToString;
 public class RegisterDto {   
     private String username;
     private String email;
-    private String password;
-      
+    private String password;      
  // Per registrare tutti come USER di Default commentare roles
     private Set<String> roles;
 }
