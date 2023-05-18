@@ -24,9 +24,8 @@ public class ImageEntity {
     private Long id;
  
     private String fileName;
-    
-    @OneToOne(mappedBy = "immagineEvento")
-    private Evento evento;
+   
+   
  
     @Lob
     private byte[] imageData;

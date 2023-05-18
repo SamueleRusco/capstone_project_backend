@@ -48,14 +48,8 @@ public class Evento {
 	private List<String> artistiEvento;
 	
 	
-	 @OneToOne(cascade = CascadeType.ALL)
-	    @JoinColumn(name = "immagine_id")
-	    private ImageEntity immagineEvento;
-    
-    
+	@Column	
+	private Long immagineEvento;
 	
 
-	
-	
-	
 }

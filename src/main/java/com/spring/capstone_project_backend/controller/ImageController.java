@@ -41,7 +41,7 @@ public class ImageController {
             imageEntity.setImageData(imageData);
             imageRepository.save(imageEntity);
  
-            return ResponseEntity.ok("Image uploaded successfully");
+            return ResponseEntity.ok(imageEntity.getId());
         } catch (IOException e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload image");

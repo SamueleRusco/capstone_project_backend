@@ -26,7 +26,7 @@ import com.spring.capstone_project_backend.model.Evento;
 
 import com.spring.capstone_project_backend.service.EventoService;
 
-@CrossOrigin(origins =  "*", maxAge = 360000)
+
 @RestController
 @RequestMapping("/api/eventi")
 public class EventoController {
