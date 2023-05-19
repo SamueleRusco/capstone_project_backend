@@ -25,7 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.spring.capstone_project_backend.model.UserNewsLetter;
 import com.spring.capstone_project_backend.service.UserNewsLetterService;
 
-@CrossOrigin(origins =  "*", maxAge = 360000)
+@CrossOrigin
 @RestController
 @RequestMapping("/api/newsletter")
 public class UserNewsletterController {

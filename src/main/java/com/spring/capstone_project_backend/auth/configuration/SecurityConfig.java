@@ -62,6 +62,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/api/eventi/**").permitAll()
                 .requestMatchers("/api/images/**").permitAll()
+                .requestMatchers("/api/newsletter/**").permitAll()
                 .anyRequest().authenticated())
         .exceptionHandling( exception -> exception
                 .authenticationEntryPoint(authenticationEntryPoint)

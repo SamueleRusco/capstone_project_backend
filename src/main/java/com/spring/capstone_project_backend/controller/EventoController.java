@@ -26,6 +26,8 @@ import com.spring.capstone_project_backend.model.Evento;
 
 import com.spring.capstone_project_backend.service.EventoService;
 
+import jakarta.annotation.security.PermitAll;
+
 
 @RestController
 @RequestMapping("/api/eventi")
@@ -35,7 +37,7 @@ public class EventoController {
 
 	
 	@GetMapping
-	
+	@PermitAll
 	public ResponseEntity<?> getAll() {
 		return new ResponseEntity<List<Evento>>(service.getAllEventi(), HttpStatus.OK);
 	}
