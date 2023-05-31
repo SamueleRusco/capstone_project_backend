@@ -55,7 +55,7 @@ Accetta un body in formato JSON con username e password.
 
 *{*
 
-*"username":"admin",**
+*"username":"admin",*
 
 *"password":"123456789"*
 
@@ -84,5 +84,8 @@ CREARE UN DB su Postgres o MySql
 - Eseguire una volta la funzione 'setRoleDefault();' dal Runner (scommentare e riavviare e successivamente ricommentare)
 - Eseguire una volta la funzione 'startedDB();' dal Runner per popolare il database (scommentare e riavviare e successivamente ricommentare).
 - tramite PostMan eseguire il login (vedi sopra)
+
+Link alla repository Front End:
+https://github.com/SamueleRusco/capstoneprojectfrontend
 
 
